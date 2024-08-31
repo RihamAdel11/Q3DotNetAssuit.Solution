@@ -11,5 +11,20 @@ namespace Q3DotNetAssuit.Controllers
             List<Department > list = context.Departments.Include(d=>d.Emps) .ToList ();
             return View("Index",list);
         }
+        public IActionResult Add()
+         {
+          
+            return View("Add");
+        }
+        public IActionResult SaveAdd(Department departObj)
+        {
+            if(departObj is not null)
+            {
+                context.Departments.Add(departObj);
+                context.SaveChanges ();
+                return RedirectToAction("Index");
+            }
+            return View("Add", departObj);
+        }
     }
 }

@@ -6,6 +6,7 @@ namespace Q3DotNetAssuit.Controllers
 {
     public class DepartmentController : Controller
     {ITIContext context=new ITIContext ();
+        [HttpGet]
         public IActionResult Index()
         {
             List<Department > list = context.Departments.Include(d=>d.Emps) .ToList ();
@@ -16,6 +17,7 @@ namespace Q3DotNetAssuit.Controllers
           
             return View("Add");
         }
+        [HttpPost]
         public IActionResult SaveAdd(Department departObj)
         {
             if(departObj is not null)

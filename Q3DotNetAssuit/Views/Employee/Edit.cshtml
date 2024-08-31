@@ -1,0 +1,41 @@
+﻿@model EmployeeViewModel 
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<form method="post" action="/Employee/SaveEdit/@Model.Id">
+    <div>
+        <lable>Name</lable>
+        <input name="name" id="name" type="text" value="@Model?.Name" class="form form-control " />
+    </div>
+    <div>
+        <lable>Address</lable>
+        <input name="Address" id="Address" type="text" value="@Model?.Address " class="form form-control " />
+    </div>
+    <div>
+        <lable>ImageUrl</lable>
+        <input name="ImageUrl" id="ImageUrl" type="text" value="@Model?.ImageUrl " class="form form-control " />
+    </div>
+    <div>
+        <lable>Salary</lable>
+        <input name="Salary" id="Salary" type="number" value="@Model?.Salary " class="form form-control " />
+    </div>
+    <div>
+        <lable>JobTitle</lable>
+        <input name="JobTitle" id="JobTitle" type="text" value="@Model?.JobTitle " class="form form-control " />
+    </div>
+    <div>
+        <lable>DepartmentId </lable>
+        <select id="DepartmentId " value="@Model?.DepartmentId " class="form form-control ">
+            @foreach(var item in Model.DepartmentList)
+            {
+                <option value="@item.Id" selected>@item.Name </option>
+            }
+        </select>
+    </div>
+    <input type="submit" value="Save" class="btn btn-success  " />
+</form>
+
+<a href="/Department/Index">Back to List</a>
+

@@ -1,0 +1,23 @@
+﻿@model Employee 
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<h2 style="color :@ViewBag.Color">@Model.Name</h2>
+
+<h2>@ViewData["Mes"]</h2>
+<h2>
+    @(int.Parse (ViewData["temp"].ToString ())-10) 
+   
+</h2>
+
+<select>
+    @foreach (var item in (List<string>)ViewData["Branches"])
+    {
+<option >@item</option>
+    }
+</select>
+
+
+
